@@ -1,0 +1,225 @@
+@import '@/assets/fonts/stylesheet.css';
+@import '@/assets/fontello/css/fontello.css';
+
+// .page-wrapper {
+//     // position: relative;
+//     overflow: hidden;
+
+//     .loader-wrapper {
+//         align-items: initial;
+
+//         .lds-ripple {
+//             top: 30vh;
+//         }
+//     }
+// }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Dosis', sans-serif;
+    background-color: @black;
+    color: @white;
+    .transition-duration(0.5s);
+
+    &.bm-overlay {
+        background: rgba(0, 0, 0, 1);
+    }
+}
+
+.v-h-anim-hover {
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    width: 140px;
+
+    &::before {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border: 1px solid rgba(255, 255, 255, 0);
+        content: " ";
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        width: 0;
+        bottom: 7px;
+    }
+
+    &::after {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border: 1px solid rgba(255, 255, 255, 0);
+        content: " ";
+        display: block;
+        margin: 0 auto;
+        position: relative;
+        transition: all 0.3s ease-in-out;
+        width: 0;
+        top: 7px;
+    }
+
+    &:hover {
+        letter-spacing: 5px;
+        border: none;
+
+        &::before {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-color: #fff;
+            transition: width 350ms ease-in-out;
+            width: 100%;
+        }
+
+        &::after {
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-color: #fff;
+            transition: width 350ms ease-in-out;
+            width: 100%;
+        }
+    }
+}
+
+.vert-line-hover {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 0;
+        border-bottom: 2px solid @white;
+        transition: all .4s;
+        opacity: 1;
+    }
+    &:hover {
+        &::after {
+            width: 100%;
+            left: 0;
+        }
+    }
+}
+
+.border-all-hover {
+    display: inline-block;
+    position: relative;
+    background: none;
+    position: relative;
+
+
+    &::before,
+    &::after {
+        content: "";
+        width: 0;
+        height: 2px;
+        position: absolute;
+        transition: all 0.2s linear;
+        background: #fff;
+        position: absolute;
+        transition-duration: 0.3s;
+        width: 100%;
+    }
+
+    &::before {
+        right: 0;
+        top: 0;
+    }
+
+    &::after {
+        left: 0;
+        bottom: 0;
+    }
+
+    span {
+        display: block;
+        padding: 10px 20px;
+
+        &::before,
+        &::after {
+            content: "";
+            width: 2px;
+            height: 0;
+            position: absolute;
+            transition: all 0.2s linear;
+            background: #fff;
+            position: absolute;
+            transition-duration: 0.3s;
+            height: 100%;
+        }
+
+        &::before {
+            left: 0;
+            bottom: 0;
+        }
+
+        &::after {
+            right: 0;
+            top: 0;
+        }
+    }
+
+    &:hover {
+        &::before {
+            width: 0;
+        }
+
+        &::after {
+            width: 0;
+        }
+
+        span {
+            &::before {
+                height: 0;
+            }
+
+            &::after {
+                height: 0;
+            }
+        }
+    }
+
+    &.bah-a {}
+}
+
+.d-flex {
+    display: flex;
+}
+
+.p-rel {
+    position: relative;
+}
+
+.p-fix {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 80px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: @black;
+
+    &-left {
+        left: 0;
+    }
+
+    &-right {
+        right: 0;
+    }
+}
+
+.t-padding {
+    padding: 30px 150px;
+}
+
+.container {
+    max-width: 1300px;
+    padding: 30px 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
