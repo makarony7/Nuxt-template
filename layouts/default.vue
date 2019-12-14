@@ -7,15 +7,12 @@
 
       <div class="page-wrapper center-wrapper">
         <div class="top-nav-def t-padding">
-          <nuxt-link to="/" class="m-a vert-line-hover">
-            <h1>fishing with makarony7</h1>
-          </nuxt-link>
           <div>
             <navigation />
           </div>
         </div>
 
-        <div class="container">
+        <div class="container def-styles">
           <nuxt />
         </div>
 
@@ -92,13 +89,13 @@ export default {
   &:hover {
     .line-style {
       &:nth-child(1) {
-        left: -10px;
+        left: -7px;
       }
       &:nth-child(2) {
-        left: -30px;
+        left: -20px;
       }
       &:nth-child(3) {
-        left: -10px;
+        left: -7px;
       }
     }
   }
@@ -258,7 +255,7 @@ export default {
 .top-nav-def {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   .m-a {
     text-decoration: none;
     h1 {
