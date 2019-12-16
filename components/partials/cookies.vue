@@ -3,23 +3,21 @@
   <div v-if="show" class="cookie-alert">
     <div class="container">
       <div class="cookie-content">
-        <div class="pull-right cookie-button-accept">
-          <span class="icon-cancel" @click="userAgreed()">XX</span>
-        </div>
         <div class="cookie-body">
-          <div class="d-flex align-items-center">
-            <div class="icon-img">
+          <div class="left">
+            <div class="img">
               <img
-                src="@/assets/img/cookies.svg"
+                src="@/assets/img/cookies.png"
                 alt="Cookies"
                 class="img-fluid"
               />
             </div>
-            <div class="cont">
-              <b>Nasza strona internetowa wykorzystuje cookies (ciasteczka).</b>
+            <div class="content">
+              Strona internetowa wykorzystuje cookies (ciasteczka).
               <a
                 href="https://policies.google.com/technologies/cookies?hl=pl"
                 target="_blank"
+                class="vert-line-hover"
               >
                 Dowiedz się więcej
               </a>
@@ -27,6 +25,9 @@
               Korzystając ze strony wyrażasz zgodę na używanie cookie, zgodnie z
               aktualnymi ustawieniami przeglądarki.
             </div>
+          </div>
+          <div class="right">
+            <i class="icon-cancel vert-line-hover" @click="userAgreed()"></i>
           </div>
         </div>
       </div>
@@ -66,116 +67,58 @@ export default {
 
 <style lang="less" scoped>
 .cookie-alert {
+  position: fixed;
+  left: 0;
+  bottom: 0;
   z-index: 999;
   width: 100%;
-  max-width: unset;
-  margin: 0;
-  background: lightcoral;
-  padding: 25px 45px 15px;
-  color: white;
-  height: auto;
-  bottom: 0;
-  right: 0;
-  position: fixed;
-
-  @media (max-width: 1500px) {
-    padding: 25px 0 15px;
-  }
-
-  @media (max-width: 991px) {
-    padding: 25px 20px 15px;
-  }
-
-  @media (max-width: 575px) {
-    padding: 25px 0px 15px;
-  }
+  background: @black;
 
   .cookie-content {
     display: block;
     width: 100%;
-    position: relative;
-  }
-
-  .cookie-button-accept {
-    cursor: pointer;
-    z-index: 100000;
-    position: absolute;
-    right: 25px;
-    top: 8px;
-
-    i {
-      &::before {
-        font-size: 30px;
-        transition-duration: 0.3s;
-      }
-    }
-
-    &:hover i::before {
-      opacity: 0.8;
-    }
   }
 
   .cookie-body {
     width: 100%;
-    display: inline-block;
-
-    .icon-img {
-      fill: url(#icon-gradient) lightblue;
-
-      display: inline-block;
-      margin-right: 10px;
-
-      img {
-        width: 50px;
-
-        @media (max-width: 1500px) {
-          width: 45px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    .left {
+      display: flex;
+      align-items: center;
+      .img {
+        width: 45px;
+        margin-right: 20px;
+        img {
+          max-width: 100%;
+          height: auto;
         }
       }
-
-      @media (max-width: 1500px) {
-        margin-right: 0;
-      }
-
-      @media (max-width: 575px) {
-        max-width: 37px;
+      .content {
+        width: 70%;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.5px;
+        a {
+          color: @white;
+          text-decoration: none;
+        }
       }
     }
-
-    .cont {
-      width: 56%;
-      font-size: 14px;
-      line-height: 22px;
-      padding: 0 15px;
-      display: inline-block;
-
-      a {
-        font-size: 14px;
-        color: white;
-        transition-duration: 0.3s;
-
-        &:hover {
-          color: lightgreen;
+    .right {
+      i {
+        padding: 0 3px;
+        display: inline-block;
+        cursor: pointer;
+        &::before {
+          font-size: 40px;
+          .transition-duration(0.3s);
         }
-      }
-
-      @media (max-width: 1650px) {
-        width: 68%;
-      }
-
-      @media (max-width: 991px) {
-        font-size: 12px;
-        line-height: 16px;
-      }
-
-      @media (max-width: 575px) {
-        padding: 0 10px;
-        font-size: 10px;
-        line-height: 14px;
-
-        a {
-          font-size: 10px;
-          line-height: 14px;
+        &:hover {
+          &::before {
+            .rotate(15deg);
+          }
         }
       }
     }

@@ -39,9 +39,7 @@
 <script>
 import axios from 'axios'
 import Vue from 'vue'
-import VueMasonry from 'vue-masonry-css'
 import VueGallerySlideshow from 'vue-gallery-slideshow'
-Vue.use(VueMasonry)
 Vue.use(VueGallerySlideshow)
 
 export default {

@@ -132,7 +132,7 @@ export default {
     height: 100%;
     z-index: 1;
     background: @black;
-    opacity: 0.7;
+    opacity: 0.5;
     z-index: 1;
   }
 }

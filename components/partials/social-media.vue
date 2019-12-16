@@ -42,10 +42,6 @@ a {
   padding: 3px;
   i {
     &::before {
-      width: auto;
-      margin-right: 0;
-      margin-left: 0;
-      line-height: normal;
       color: @white;
       font-size: 20px;
       .transition-duration(0.3s);
