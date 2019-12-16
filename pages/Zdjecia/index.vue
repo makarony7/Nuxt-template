@@ -10,13 +10,22 @@
         </h3>
       </div>
       <div class="img-box_right">
-        <img
+        <div
+          v-for="(image, i) in data.images"
+          :key="i"
+          class="image"
+          :style="{
+            backgroundImage: `url('${baseUrl}${image.url}')`
+          }"
+          @click="index = i"
+        />
+        <!-- <img
           v-for="(image, i) in data.images"
           :key="i"
           class="image"
           :src="`${baseUrl}${image.url}`"
           @click="index = i"
-        />
+        /> -->
         <vue-gallery-slideshow
           :images="images"
           :index="index"
@@ -72,6 +81,10 @@ export default {
 .img-box {
   display: flex;
   margin-bottom: 100px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
   &_left {
     width: 500px;
     padding-right: 100px;
@@ -80,11 +93,12 @@ export default {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    &:hover {
-    }
-    img {
-      max-width: 33.33%;
-      height: auto;
+    .image {
+      background-position: center;
+      background-size: cover;
+      background-color: @black;
+      width: 20%;
+      height: 200px;
       filter: grayscale(1);
       .transition-duration(0.3s);
       opacity: 0.5;

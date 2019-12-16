@@ -12,7 +12,7 @@
           </div>
         </div>
 
-        <div class="container def-styles">
+        <div class="container def-styles center-margin">
           <nuxt />
         </div>
 
