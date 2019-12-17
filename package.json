@@ -26,6 +26,7 @@
     "vue-burger-menu": "^2.0.3",
     "vue-cookies": "^1.5.13",
     "vue-gallery-slideshow": "^1.5.0",
+    "vue-mouse-parallax": "^1.2.2",
     "vue-router": "^3.1.3",
     "vue-runtime-helpers": "^1.1.2"
   },

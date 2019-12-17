@@ -42,7 +42,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => this.$store.commit('setPageLoaded', true), 500)
+    setTimeout(() => this.$store.commit('setPageLoaded', true), 1000)
     // console.log(process.env.baseUrl)
     this.baseUrl = process.env.baseUrl
   },

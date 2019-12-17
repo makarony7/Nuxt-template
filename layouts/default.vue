@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <footer-content class="t-padding" />
+    <footer-content />
     <cookies />
   </div>
 </template>
@@ -61,6 +61,7 @@ export default {
     }
   },
   mounted() {
+    setTimeout(() => this.$store.commit('setPageLoaded', true), 500)
     // const allLink = document.getElementsByClassName('border-all-hover')
     // allLink.onclick = function() {
     //   document.body.classList.remove('bm-overlay')
@@ -70,13 +71,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.sm-ico {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  height: 111px;
-}
 /deep/ .bm-burger-button {
   top: 50%;
   left: 50% !important;
@@ -181,7 +175,7 @@ export default {
 .navigation {
   text-align: center;
   /deep/ a {
-    margin: 0 8px;
+    margin: 0 15px;
     &:first-child {
       margin-left: 0;
     }

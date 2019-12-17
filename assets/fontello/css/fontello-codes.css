@@ -1,5 +1,9 @@
 
+.icon-play:before { content: '\e800'; } /* '' */
+.icon-play-circled2:before { content: '\e801'; } /* '' */
+.icon-play-outline:before { content: '\e802'; } /* '' */
 .icon-cancel:before { content: '\e803'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
+.icon-play-circled:before { content: '\f144'; } /* '' */
 .icon-youtube:before { content: '\f167'; } /* '' */
 .icon-instagram:before { content: '\f16d'; } /* '' */

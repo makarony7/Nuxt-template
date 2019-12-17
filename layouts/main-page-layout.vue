@@ -35,8 +35,9 @@ export default {
     }
   },
   mounted() {
-    console.log('janek blablabla')
-    window.test = 'paula blablablablablabla'
+    // setTimeout(() => this.$store.commit('setPageLoaded', true), 500)
+    // console.log('janek blablabla')
+    // window.test = 'paula blablablablablabla'
   }
 }
 </script>

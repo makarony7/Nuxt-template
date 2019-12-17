@@ -1,68 +1,140 @@
 <template>
   <div class="footer">
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis eius
-    officiis maiores laudantium est fuga eveniet, ratione sit, quas eaque iste!
-    Deserunt commodi quam, numquam natus modi voluptatem fugiat eius qui aperiam
-    minus quibusdam. Dolor, explicabo fugit magni perspiciatis voluptatem
-    accusantium, deserunt porro quidem ipsum incidunt saepe harum temporibus
-    provident id aliquam! Officia laboriosam facere numquam itaque eos
-    distinctio obcaecati ipsum, eum modi molestias tempore molestiae autem
-    delectus quibusdam, magni inventore cum eaque. Quaerat maxime modi adipisci
-    tempore porro optio quam ab dolorum deserunt expedita dolorem consequuntur
-    error labore doloribus voluptatem voluptates quas, molestias tempora eius?
-    Facilis officiis cum repellat! Vero unde atque consequatur sunt sapiente
-    autem est sequi, ad maxime voluptatem totam minus repellendus ex nam
-    quaerat, quidem sint quod assumenda vel, maiores officiis iste facere eius?
-    Doloremque ipsa recusandae minima deleniti repellat itaque odit distinctio
-    dolor incidunt magni voluptatem quos et corrupti dolores laborum, nihil
-    soluta repudiandae alias, vitae esse amet aliquam voluptas. Nesciunt nihil
-    blanditiis itaque laboriosam accusamus molestiae, eveniet aut quibusdam,
-    quisquam ducimus aspernatur repellendus libero sit, voluptas repudiandae
-    tenetur et eligendi recusandae officia! Nisi, magni. Facere minima provident
-    iure impedit deleniti harum reiciendis praesentium sed. Ratione amet,
-    distinctio quam dolor illum pariatur dignissimos praesentium tenetur ea modi
-    quisquam corrupti reiciendis odio quos debitis velit expedita, asperiores
-    ipsa consectetur. Magni quasi atque magnam illum nesciunt blanditiis
-    recusandae quaerat dolorum quod molestiae quia, architecto eveniet modi,
-    tempora rerum, vel earum praesentium tenetur corporis exercitationem odit!
-    Nisi ullam iure eligendi praesentium. Eveniet minima consectetur ipsum
-    libero odit repudiandae totam vero autem harum veniam. Vitae, in labore ut,
-    exercitationem assumenda nam accusamus illum eos at quae praesentium ullam
-    quibusdam explicabo recusandae! Ut iste voluptas non ex inventore, amet
-    quibusdam dignissimos ratione atque suscipit vero id omnis, odio adipisci
-    tenetur fuga quisquam nam. Assumenda dolor dicta quae. Officia maiores esse
-    sint cum consequuntur doloribus placeat ex vitae tenetur nulla? Nobis non
-    quaerat optio quo numquam itaque vero ipsa excepturi consectetur suscipit
-    sunt cumque dolores nam porro eum autem eveniet repellat quidem, adipisci
-    natus recusandae debitis ea animi fugit. Pariatur velit nemo saepe totam
-    voluptatum veritatis rerum, doloribus impedit voluptates iste nihil
-    accusamus rem ab eos in excepturi, exercitationem consequatur. At velit
-    vitae laborum veritatis vel non dignissimos asperiores nisi illo cumque
-    natus, quidem consequuntur perferendis tempora eaque sit ducimus
-    voluptatibus aperiam ipsum magni! Laborum odit maxime fuga distinctio odio
-    molestias architecto dignissimos possimus inventore autem minus eligendi cum
-    modi tempora amet officia et illum libero, sapiente ad natus? Odio
-    voluptatibus atque impedit dolorem facilis, consequatur iure ipsa
-    praesentium excepturi aspernatur dicta eos, nobis quae ex vero nisi soluta.
-    Eligendi id dolores dolorum, odio modi molestiae quaerat nisi possimus
-    consectetur quisquam ducimus libero, unde temporibus sit quas. Aperiam,
-    provident veniam voluptatibus, magni sed laudantium dolores illum omnis a
-    asperiores nulla qui, vitae architecto nisi quae eum modi labore ipsam
-    voluptatum amet? Ipsum, cum voluptatum nostrum dolorem est quae provident
-    amet a placeat possimus iure praesentium perspiciatis quibusdam repellendus
-    harum, mollitia eaque quisquam voluptate asperiores exercitationem nesciunt,
-    sunt doloribus quidem voluptates! Adipisci?
+    <nuxt-link to="/" class="logo-out">
+      <logo />
+    </nuxt-link>
+    <div class="footer-nav">
+      <div class="left navigation">
+        <nuxt-link to="o-mnie" class="vert-line-hover">
+          O mnie
+        </nuxt-link>
+        <nuxt-link to="zdjecia" class="vert-line-hover">
+          Zdjęcia
+        </nuxt-link>
+      </div>
+      <div class="center">
+        <social-media />
+      </div>
+      <div class="right navigation">
+        <nuxt-link to="filmy" class="vert-line-hover">
+          Filmy
+        </nuxt-link>
+        <nuxt-link to="sprzet" class="vert-line-hover">
+          Sprzęt
+        </nuxt-link>
+      </div>
+    </div>
+    <div class="all-rights">
+      <p>
+        Projekt i wykonanie: fishing with makarony7
+      </p>
+      <p>
+        © 2020 Wszelkie prawa zastrzeżone
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
+import logo from '@/components/home/logo'
+import socialMedia from '@/components/partials/social-media.vue'
+
 export default {
-  name: 'FooterContent'
+  name: 'FooterContent',
+  components: {
+    logo,
+    socialMedia
+  },
+  mounted() {
+    // const els = document.getElementsByClassName('border-all-hover')
+    // function removeClasses() {
+    //   els[0].classList.remove('border-all-hover')
+    //   if (els[0]) removeClasses()
+    // }
+    // removeClasses()
+  }
 }
 </script>
 
 <style lang="less" scoped>
 .footer {
-  color: red;
+  overflow: hidden;
+  padding: 20px 85px;
+  .logo-out {
+    display: block;
+    width: 160px;
+    margin: 0 auto;
+    text-decoration: none;
+    position: relative;
+    /deep/ .logo {
+      background-color: @black;
+      filter: brightness(1);
+      img {
+        max-width: 100%;
+        width: 100px;
+      }
+      h1 {
+        font-size: 18px;
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 1px;
+      width: 800%;
+      display: block;
+      background: @white;
+      z-index: -1;
+    }
+  }
+  .footer-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto;
+    .navigation {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      a {
+        text-transform: uppercase;
+        color: @white;
+        font-size: 24px;
+        position: relative;
+        text-decoration: none;
+        margin-bottom: 10px;
+        &::after {
+          bottom: -1px;
+        }
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+        &.nuxt-link-exact-active {
+          &::after {
+            width: 100%;
+            left: 0;
+          }
+        }
+      }
+    }
+    .center {
+      /deep/ .sm-ico {
+        flex-direction: row;
+        height: auto;
+        width: 150px;
+        margin: 0 auto;
+      }
+    }
+  }
+  .all-rights {
+    p {
+      text-align: center;
+    }
+  }
 }
 </style>

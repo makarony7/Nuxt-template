@@ -19,10 +19,10 @@ export default {
   data() {
     return {
       links: [
-        { id: 'link-home', title: 'Strona Główna', url: '/' },
-        { id: 'link-about', title: 'Kim jestem?', url: '/o-mnie' },
-        { id: 'link-img', title: 'Fotografie', url: '/zdjecia' },
-        { id: 'link-videos', title: 'Nagrania', url: '/filmy' },
+        { id: 'link-home', title: 'Start', url: '/' },
+        { id: 'link-about', title: 'O mnie', url: '/o-mnie' },
+        { id: 'link-img', title: 'Zdjęcia', url: '/zdjecia' },
+        { id: 'link-videos', title: 'Filmy', url: '/filmy' },
         { id: 'link-equipment', title: 'Sprzęt', url: '/sprzet' }
       ]
     }

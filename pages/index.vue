@@ -16,23 +16,34 @@
         </div>
       </div>
       <navigation />
-      <logo />
+      <social-media />
+      <parallax-container class="parallax-container">
+        <parallax-element :parallax-strength="10" class="parallax-element">
+          <logo />
+        </parallax-element>
+      </parallax-container>
     </div>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import { ParallaxContainer, ParallaxElement } from 'vue-mouse-parallax'
 import logo from '@/components/home/logo'
 import navigation from '@/components/home/navigation'
+import socialMedia from '@/components/partials/social-media.vue'
+Vue.component('parallax-container', ParallaxContainer)
+Vue.component('parallax-element', ParallaxElement)
 
 export default {
   layout: 'main-page-layout',
   components: {
     logo,
-    navigation
+    navigation,
+    socialMedia
   },
   mounted() {
-    setTimeout(() => this.$store.commit('setPageLoaded', true), 500)
+    setTimeout(() => this.$store.commit('setPageLoaded', true), 1000)
 
     const linkAbout = document.getElementById('link-about')
     const hM1 = document.getElementById('h-m-1')
@@ -119,7 +130,7 @@ export default {
 }
 .navigation {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   top: 48.3%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -136,6 +147,24 @@ export default {
   position: absolute;
   z-index: 2;
   bottom: 30px;
-  left: 30px;
+  right: 30px;
+}
+/deep/ .sm-ico {
+  position: absolute;
+  z-index: 3;
+  top: calc(50% - 1px);
+  left: 28.5px;
+  transform: translateY(-50%);
+}
+.parallax-container,
+.parallax-element {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.parallax-container {
+  position: relative;
+  z-index: 2;
 }
 </style>
