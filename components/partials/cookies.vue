@@ -100,6 +100,10 @@ export default {
         font-size: 16px;
         line-height: 22px;
         letter-spacing: 0.5px;
+        @media @w-991 {
+          font-size: 14px;
+          line-height: 20px;
+        }
         a {
           color: @white;
           text-decoration: none;

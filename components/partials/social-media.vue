@@ -6,7 +6,6 @@
       :key="index"
       :href="icon.url"
       target="_blank"
-      class="vert-line-hover"
     >
       <i :class="icon.class"></i>
     </a>
@@ -49,8 +48,13 @@ a {
   }
   &:hover {
     i::before {
-      .rotate(15deg);
+      color: red;
     }
+  }
+  &:focus,
+  &:active {
+    outline: none;
+    background: none;
   }
 }
 </style>

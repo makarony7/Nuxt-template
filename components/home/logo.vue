@@ -1,6 +1,6 @@
 <template>
   <div class="logo">
-    <img src="~/assets/img/logo-white-k.png" alt="logo.png" />
+    <img src="~/assets/img/logo-white.png" alt="logo-white.png" />
     <h1>fishing with makarony7</h1>
   </div>
 </template>

@@ -3,7 +3,9 @@
     <template>
       <div class="page-wrapper">
         <div>
-          <nuxt />
+          <transition name="page" mode="out-in">
+            <router-view />
+          </transition>
         </div>
 
         <loader :loading="!pageLoaded" />
@@ -22,6 +24,7 @@ import Loader from '@/components/partials/Loader'
 smoothscroll.polyfill()
 
 export default {
+  name: 'MainPageLayout',
   components: {
     cookies,
     Loader

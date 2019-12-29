@@ -3,7 +3,11 @@
 .icon-play-circled2:before { content: '\e801'; } /* '' */
 .icon-play-outline:before { content: '\e802'; } /* '' */
 .icon-cancel:before { content: '\e803'; } /* '' */
+.icon-help:before { content: '\e804'; } /* '' */
+.icon-help-circled:before { content: '\e805'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-play-circled:before { content: '\f144'; } /* '' */
 .icon-youtube:before { content: '\f167'; } /* '' */
+.icon-youtube-play:before { content: '\f16a'; } /* '' */
 .icon-instagram:before { content: '\f16d'; } /* '' */
+.icon-question-circle-o:before { content: '\f29c'; } /* '' */

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div v-for="data in datas" :key="data.id" class="img-box">
+    <div v-for="data in datas" :key="data.id" class="img-box b-vert-l">
       <div class="img-box_left">
-        <h1 v-if="data.title">
+        <h2 v-if="data.title">
           {{ data.title }}
-        </h1>
+        </h2>
         <h3 v-if="data.content">
           {{ data.content }}
         </h3>
@@ -17,35 +17,31 @@
           :style="{
             backgroundImage: `url('${baseUrl}${image.url}')`
           }"
-          @click="index = i"
+          @click="() => showImg(index)"
         />
-        <!-- <img
-          v-for="(image, i) in data.images"
-          :key="i"
-          class="image"
-          :src="`${baseUrl}${image.url}`"
-          @click="index = i"
-        /> -->
-        <vue-gallery-slideshow
-          :images="images"
-          :index="index"
-          @close="index = null"
+        <!-- <vue-easy-lightbox
+          v-for="(image, x) in data.images"
+          :key="x"
+          :visible="visible"
+          :imgs="`${baseUrl}${image.url}`"
+          @hide="handleHide"
         />
+      </div> -->
       </div>
     </div>
   </div>
 </template>
 
+<script src="path/to/vue.js"></script>
+<script src="path/to/vue-easy-lightbox.umd.min.js"></script>
 <script>
 import axios from 'axios'
 import Vue from 'vue'
-import VueGallerySlideshow from 'vue-gallery-slideshow'
-Vue.use(VueGallerySlideshow)
+import Lightbox from 'vue-easy-lightbox'
+Vue.use(Lightbox)
 
 export default {
-  components: {
-    VueGallerySlideshow
-  },
+  components: {},
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.baseUrl}/contentimages`)
     return { datas: data }
@@ -54,11 +50,13 @@ export default {
     return {
       baseUrl: null,
       index: null,
-      images: []
+      images: [],
+      visible: false,
+      imgs: [`${process.env.baseUrl}/contentimages`]
     }
   },
   mounted() {
-    setTimeout(() => this.$store.commit('setPageLoaded', true), 1000)
+    setTimeout(() => this.$store.commit('setPageLoaded', true), 300)
     // console.log(process.env.baseUrl)
     this.baseUrl = process.env.baseUrl
   },
@@ -70,6 +68,13 @@ export default {
       axios.post('http://localhost:1337/contentimages', postData).then(res => {
         // console.log('dane zostały dodane')
       })
+    },
+    showImg(index) {
+      this.index = index
+      this.visible = true
+    },
+    handleHide() {
+      this.visible = false
     }
   }
 }
@@ -80,26 +85,73 @@ export default {
   display: flex;
   margin-bottom: 100px;
 
+  @media @w-767 {
+    flex-direction: column;
+    margin-bottom: 80px;
+    &::after {
+      bottom: -40px;
+    }
+  }
+
   &:last-of-type {
     margin-bottom: 0;
+    &::after {
+      content: none;
+    }
   }
   &_left {
     width: 500px;
     padding-right: 100px;
+    @media @w-1299 {
+      padding-right: 70px;
+    }
+    @media @w-767 {
+      width: 100%;
+      padding-right: 0;
+      margin-bottom: 30px;
+    }
   }
   &_right {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
+    &:hover {
+      .image {
+        filter: grayscale(1);
+        opacity: 0.5;
+      }
+    }
     .image {
       background-position: center;
       background-size: cover;
       background-color: @black;
-      width: 20%;
+      width: 25%;
       height: 200px;
-      filter: grayscale(1);
+      @media @w-1399 {
+        height: 180px;
+      }
+      @media @w-1299 {
+        height: 170px;
+      }
+      @media @w-1199 {
+        height: 160px;
+      }
+      @media @w-1099 {
+        height: 140px;
+      }
+      @media @w-991 {
+        width: 50%;
+      }
+      @media @w-767 {
+        width: 25%;
+        height: 120px;
+      }
+      @media @w-469 {
+        width: 50%;
+        height: 120px;
+      }
       .transition-duration(0.3s);
-      opacity: 0.5;
       cursor: pointer;
       &:hover {
         filter: grayscale(0);

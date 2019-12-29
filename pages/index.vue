@@ -43,7 +43,7 @@ export default {
     socialMedia
   },
   mounted() {
-    setTimeout(() => this.$store.commit('setPageLoaded', true), 1000)
+    setTimeout(() => this.$store.commit('setPageLoaded', true), 300)
 
     const linkAbout = document.getElementById('link-about')
     const hM1 = document.getElementById('h-m-1')
@@ -127,6 +127,22 @@ export default {
   z-index: 2;
   grid-template-columns: repeat(2, 2fr);
   grid-gap: 5px;
+  @media @w-1499 {
+    width: 800px;
+    height: 800px;
+  }
+  @media @w-1199 {
+    width: 800px;
+    height: 800px;
+  }
+  @media @w-991 {
+    width: 700px;
+    height: 700px;
+  }
+  @media @w-767 {
+    width: 600px;
+    height: 600px;
+  }
 }
 .navigation {
   position: absolute;
@@ -134,13 +150,35 @@ export default {
   top: 48.3%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 800px;
+  width: 840px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   max-width: 100%;
-  /deep/ a:first-child {
-    display: none;
+  /deep/ a {
+    &:nth-child(2) {
+      margin-left: 20px;
+    }
+    &:nth-child(5) {
+      margin-right: 20px;
+    }
+    &:first-child {
+      display: none;
+    }
+  }
+  @media @w-575 {
+    flex-direction: column;
+    /deep/ a {
+      margin: 10px;
+      width: 130px;
+      text-align: center;
+      &:nth-child(2) {
+        margin-left: 10px;
+      }
+      &:nth-child(5) {
+        margin-right: 10px;
+      }
+    }
   }
 }
 .logo {
@@ -148,6 +186,24 @@ export default {
   z-index: 2;
   bottom: 30px;
   right: 30px;
+  @media @w-991 {
+    bottom: 10px;
+    right: 10px;
+    /deep/ img {
+      width: 100px;
+    }
+    /deep/ h1 {
+      font-size: 16px;
+    }
+  }
+  @media @w-575 {
+    bottom: auto;
+    top: 10px;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: brightness(1);
+  }
 }
 /deep/ .sm-ico {
   position: absolute;
@@ -155,6 +211,28 @@ export default {
   top: calc(50% - 1px);
   left: 28.5px;
   transform: translateY(-50%);
+  @media @w-1499 {
+    top: auto;
+    bottom: 20px;
+    left: 20px;
+    transform: none;
+  }
+  @media @w-991 {
+    flex-direction: row;
+    height: auto;
+    bottom: 10px;
+    left: 10px;
+    a {
+      padding: 10px;
+      margin: 0 5px;
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
 }
 .parallax-container,
 .parallax-element {

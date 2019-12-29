@@ -1,15 +1,18 @@
 <template>
   <div class="loader-wrapper" :class="{ hidden: !loading }">
     <div class="center-loader">
-      <div class="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+      <div class="loader loader1">
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -26,7 +29,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
 .loader-wrapper {
   width: 100%;
   height: 100%;
@@ -51,91 +54,97 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .lds-roller {
-    display: inline-block;
-    position: relative;
-    width: 80px;
-    height: 80px;
-    div {
-      animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      transform-origin: 40px 40px;
-      &:after {
-        content: ' ';
-        display: block;
-        position: absolute;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: @white;
-        filter: brightness(0.9);
-        margin: -4px 0 0 -4px;
-      }
-      &:nth-child(1) {
-        animation-delay: -0.036s;
-        &:after {
-          top: 63px;
-          left: 63px;
-        }
-      }
-      &:nth-child(2) {
-        animation-delay: -0.072s;
-        &:after {
-          top: 68px;
-          left: 56px;
-        }
-      }
-      &:nth-child(3) {
-        animation-delay: -0.108s;
-        &:after {
-          top: 71px;
-          left: 48px;
-        }
-      }
-      &:nth-child(4) {
-        animation-delay: -0.144s;
-        &:after {
-          top: 72px;
-          left: 40px;
-        }
-      }
-      &:nth-child(5) {
-        animation-delay: -0.18s;
-        &:after {
-          top: 71px;
-          left: 32px;
-        }
-      }
-      &:nth-child(6) {
-        animation-delay: -0.216s;
-        &:after {
-          top: 68px;
-          left: 24px;
-        }
-      }
-      &:nth-child(7) {
-        animation-delay: -0.252s;
-        &:after {
-          top: 63px;
-          left: 17px;
-        }
-      }
-      &:nth-child(8) {
-        animation-delay: -0.288s;
-        &:after {
-          top: 56px;
-          left: 12px;
-        }
-      }
-    }
-  }
 }
-
-@keyframes lds-roller {
+@-webkit-keyframes rotate {
   0% {
+    -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
   100% {
+    -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    border-top-color: rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    border-top-color: rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: block;
+  overflow: hidden;
+}
+.loader div {
+  height: 100%;
+}
+
+.loader1,
+.loader1 div {
+  border-radius: 50%;
+  padding: 8px;
+  border: 2px solid transparent;
+  -webkit-animation: rotate linear 3.5s infinite;
+  animation: rotate linear 3.5s infinite;
+  border-top-color: rgba(red 0.5);
+  border-bottom-color: rgba(red, 0.5);
+}
+
+.loader,
+.loader * {
+  will-change: transform;
 }
 </style>

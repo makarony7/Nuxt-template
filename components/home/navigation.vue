@@ -1,6 +1,6 @@
 <template>
   <div class="navigation">
-    <nuxt-link
+    <router-link
       v-for="(link, index) in links"
       :id="link.id"
       :key="index"
@@ -8,7 +8,7 @@
       class="border-all-hover"
     >
       <span>{{ link.title }}</span>
-    </nuxt-link>
+    </router-link>
   </div>
 </template>
 

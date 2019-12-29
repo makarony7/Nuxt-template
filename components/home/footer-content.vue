@@ -60,34 +60,69 @@ export default {
 .footer {
   overflow: hidden;
   padding: 20px 85px;
+  filter: brightness(0.5);
+  .transition-duration(0.3s);
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 64px;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    display: block;
+    background: @white;
+    z-index: -1;
+    pointer-events: none;
+  }
+  @media @w-1199 {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+  @media @w-991 {
+    padding-left: 60px;
+    padding-right: 60px;
+    &::before {
+      top: 59px;
+    }
+  }
+  @media @w-767 {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  @media @w-575 {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 20px;
+  }
+  @media @w-359 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  &:hover {
+    filter: brightness(1);
+  }
   .logo-out {
     display: block;
     width: 160px;
     margin: 0 auto;
     text-decoration: none;
-    position: relative;
     /deep/ .logo {
       background-color: @black;
       filter: brightness(1);
       img {
         max-width: 100%;
         width: 100px;
+        @media @w-991 {
+          width: 80px;
+        }
       }
       h1 {
         font-size: 18px;
+        @media @w-991 {
+          font-size: 16px;
+        }
       }
-    }
-    &::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 1px;
-      width: 800%;
-      display: block;
-      background: @white;
-      z-index: -1;
     }
   }
   .footer-nav {
@@ -97,6 +132,14 @@ export default {
     width: 100%;
     max-width: 900px;
     margin: 30px auto;
+    @media @w-991 {
+      justify-content: center;
+      margin: 20px auto;
+    }
+    @media @w-575 {
+      justify-content: center;
+      margin: 15px auto;
+    }
     .navigation {
       display: flex;
       flex-direction: column;
@@ -121,6 +164,9 @@ export default {
           }
         }
       }
+      @media @w-991 {
+        display: none;
+      }
     }
     .center {
       /deep/ .sm-ico {
@@ -132,6 +178,14 @@ export default {
     }
   }
   .all-rights {
+    @media @w-991 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    @media @w-575 {
+      flex-direction: column;
+    }
     p {
       text-align: center;
     }

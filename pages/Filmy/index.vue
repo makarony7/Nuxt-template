@@ -1,6 +1,6 @@
 <template>
   <div class="video-container">
-    <div v-for="(data, index) in datas" :key="index" class="video-box">
+    <div v-for="(data, index) in datas" :key="index" class="video-box b-vert-l">
       <div class="video-box-left">
         <div class="video-box-ins">
           <iframe
@@ -15,9 +15,9 @@
       </div>
       <div class="video-box-right">
         <div class="video-box-right-ins">
-          <h1 v-if="data.title">
+          <h2 v-if="data.title">
             {{ data.title }}
-          </h1>
+          </h2>
           <h3 v-if="data.content">
             {{ data.content }}
           </h3>
@@ -42,7 +42,7 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => this.$store.commit('setPageLoaded', true), 1000)
+    setTimeout(() => this.$store.commit('setPageLoaded', true), 300)
     // console.log(process.env.baseUrl)
     this.baseUrl = process.env.baseUrl
   },
@@ -64,13 +64,69 @@ export default {
   .video-box {
     margin-bottom: 100px;
     display: flex;
+    // flex-direction: column-reverse;
+    @media @w-991 {
+      flex-direction: column-reverse;
+      margin-bottom: 120px;
+      &:last-of-type {
+        &::after {
+          content: none;
+        }
+      }
+    }
+    @media @w-767 {
+      margin-bottom: 100px;
+      &::after {
+        bottom: -50px;
+      }
+    }
     &:nth-of-type(even) {
       flex-direction: row-reverse;
+      @media @w-991 {
+        flex-direction: column-reverse;
+      }
     }
     &:last-of-type {
       margin-bottom: 0;
     }
 
+    &-right {
+      width: 50%;
+      align-self: center;
+      text-align: center;
+      @media @w-991 {
+        width: 100%;
+        align-self: flex-start;
+        text-align: left;
+        margin-bottom: 30px;
+      }
+      h2 {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        .transition-duration(0.5s);
+      }
+      h3 {
+        opacity: 0;
+        margin-top: 0;
+        height: 24px;
+        .transition-duration(0.5s);
+        @media @w-1299 {
+          opacity: 1;
+          padding-top: 10px;
+          height: auto;
+        }
+      }
+      &-ins {
+        padding: 50px;
+        .transition-duration(0.5s);
+        @media @w-1499 {
+          padding: 10px 30px;
+        }
+        @media @w-991 {
+          padding: 0;
+        }
+      }
+    }
     &-left {
       width: 50%;
       opacity: 0.5;
@@ -78,24 +134,19 @@ export default {
       position: relative;
       overflow: hidden;
       .transition-duration(0.3s);
-      &:hover {
-        opacity: 1;
+      @media @w-1299 {
         filter: grayscale(0);
-        ~ .video-box-right {
-          h1 {
-            padding-bottom: 10px;
-          }
-          h3 {
-            opacity: 1;
-            padding-top: 10px;
-            height: normal;
-          }
-        }
-
-        &::before,
-        &::after {
-          border-width: 0;
-        }
+        opacity: 1;
+      }
+      @media @w-991 {
+        width: 70%;
+        margin: 0 auto;
+      }
+      @media @w-767 {
+        width: 80%;
+      }
+      @media @w-575 {
+        width: 100%;
       }
       &::before,
       &::after {
@@ -108,33 +159,54 @@ export default {
       &::before {
         border-bottom: 300px solid transparent;
         border-left: 300px solid black;
+
+        @media @w-1499 {
+          border-bottom: 100px solid transparent;
+          border-left: 100px solid black;
+        }
+
+        @media @w-1299 {
+          border-bottom: 0 solid transparent;
+          border-left: 0 solid black;
+        }
         top: 0;
         left: 0;
       }
       &::after {
         border-top: 300px solid transparent;
         border-right: 300px solid black;
+
+        @media @w-1499 {
+          border-top: 100px solid transparent;
+          border-right: 100px solid black;
+        }
+
+        @media @w-1299 {
+          border-top: 0 solid transparent;
+          border-right: 0 solid black;
+        }
         bottom: 0;
         right: 0;
       }
-    }
-    &-right {
-      width: 50%;
-      align-self: center;
-      text-align: center;
-      h1 {
-        margin-bottom: 0;
-        padding-bottom: 0;
-        .transition-duration(0.5s);
-      }
-      h3 {
-        opacity: 0;
-        padding-top: 0;
-        height: 0;
-        .transition-duration(0.5s);
-      }
-      &-ins {
-        padding: 50px;
+
+      &:hover {
+        opacity: 1;
+        filter: grayscale(0);
+        ~ .video-box-right {
+          h3 {
+            opacity: 1;
+            margin-top: 10px;
+            height: auto;
+            @media @w-991 {
+              padding-top: 0;
+            }
+          }
+        }
+
+        &::before,
+        &::after {
+          border-width: 0;
+        }
       }
     }
   }

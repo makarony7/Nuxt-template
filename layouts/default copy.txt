@@ -11,7 +11,7 @@
             <nuxt-link to="/">
               <logo />
             </nuxt-link>
-            <slide right width="320">
+            <slide right width="250">
               <navigation />
             </slide>
           </div>
@@ -101,15 +101,8 @@ export default {
   right: auto !important;
   height: 25px;
   transform: translate(-50%, -50%);
-
   .line-style {
     .transition-duration(0.3s);
-    @media @w-991 {
-      margin-right: 5px;
-    }
-    @media @w-575 {
-      margin-right: 0;
-    }
   }
   &:hover {
     .line-style {
@@ -352,7 +345,7 @@ export default {
     }
     /deep/ .bm-burger-button {
       left: auto !important;
-      right: 0 !important;
+      right: 10px !important;
     }
     /deep/ .cross-style {
       top: 15px;
