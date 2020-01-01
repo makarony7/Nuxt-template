@@ -66,6 +66,10 @@ export default {
 .equip-title {
   display: inline-block;
   position: relative;
+  @media @w-767 {
+    display: block;
+    text-align: center;
+  }
   a {
     text-decoration: none;
     position: absolute;
@@ -78,7 +82,7 @@ export default {
     i {
       display: block;
       &::before {
-        color: red;
+        color: @color-primary;
         font-size: 24px;
         display: block;
         .transition-duration(0.3s);

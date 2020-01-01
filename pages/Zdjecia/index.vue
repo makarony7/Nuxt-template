@@ -109,6 +109,9 @@ export default {
       width: 100%;
       padding-right: 0;
       margin-bottom: 30px;
+      h2 {
+        text-align: center;
+      }
     }
   }
   &_right {

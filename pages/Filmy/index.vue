@@ -104,11 +104,14 @@ export default {
         margin-bottom: 0;
         padding-bottom: 0;
         .transition-duration(0.5s);
+        @media @w-991 {
+          text-align: center;
+          margin-bottom: 25px;
+        }
       }
       h3 {
         opacity: 0;
         margin-top: 0;
-        height: 24px;
         .transition-duration(0.5s);
         @media @w-1299 {
           opacity: 1;

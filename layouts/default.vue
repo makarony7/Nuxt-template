@@ -113,7 +113,7 @@ export default {
   }
   &:hover {
     .line-style {
-      background: red;
+      background: @color-primary;
       &:nth-child(1) {
         left: -7px;
       }

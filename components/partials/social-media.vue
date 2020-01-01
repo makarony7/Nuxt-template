@@ -48,7 +48,7 @@ a {
   }
   &:hover {
     i::before {
-      color: red;
+      color: @color-primary;
     }
   }
   &:focus,

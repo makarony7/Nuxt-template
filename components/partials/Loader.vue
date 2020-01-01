@@ -139,8 +139,8 @@ export default {
   border: 2px solid transparent;
   -webkit-animation: rotate linear 3.5s infinite;
   animation: rotate linear 3.5s infinite;
-  border-top-color: rgba(red 0.5);
-  border-bottom-color: rgba(red, 0.5);
+  border-top-color: rgba(6, 74, 203, 0.9);
+  border-bottom-color: rgba(6, 74, 203, 0.9);
 }
 
 .loader,

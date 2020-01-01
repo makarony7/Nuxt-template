@@ -17,80 +17,221 @@
         class="color-big"
       />
     </div>
-    <div class="out-about">
-      <div class="ins-about">
-        <h2>Youtuber?</h2>
-        <p>
-          Też! Poza tym jestem wędkarzem, spinningistą. Pasjonatem natury,
-          podróżnikiem. Fotografem, zapewne też reżyserem, kamerzystą oraz
-          montarzystą.
-        </p>
-      </div>
-      <div class="ins-about">
-        <h2>Logo?</h2>
-        <p>
-          Wiele osób pyta mnie, o co chodzi z tym logo? Ba! Wiele osób mówi
-          wprost, że nie wie co ono przedstawia. Boleń jest dla mnie najbardziej
-          cwanym drapieżnikiem, który pływa w polskich rzekach, dlatego jest mi
-          go tak trudno złowić. Stąd postanowiłem w taki sposób wyeksponować tą
-          tą rybę i wstawić ją w pierwszy plan mojego logo.
-        </p>
-      </div>
-      <div class="ins-about">
-        <h2>Wody?</h2>
-        <p>
-          Nie, dziękuję. Whisky poproszę! Uwielbiam dzikie tereny wsród
-          Bieszczadzkich rzek. Jednakże staram się tam sam nie zapuszczać,
-          ponieważ nie chciałbym trafić na niedźwiedzia i mu krzywdy zrobić.
-          Kocham jezioro Solińskie za jego rozległość i tajemnicze stwory,
-          żyjące wewnątrz. Podziwiam zielone tereny wzdłuż rzeki Wisłok, za
-          bujną roślinność i wodną różnorodność. Fascynuje mnie rzeka San, jej
-          wartki nurt oraz potokowe skurkobańce. ...nie ma takiej wody, której
-          bym nie odpuścił!
-        </p>
-      </div>
-      <div class="ins-about">
-        <h2>Ryby?</h2>
-        <p>
-          Zdecydowanie pstrągi! ...ich dzikość "podnieca mnie" za każdym atakiem
-          i holem. Sandacze! ...ich pstryki powodują gęsią skórkę na moim
-          łokciu. Szczupaki! ...nie mogę się doczekać widoku, kiedy jego pysk
-          będzie większy od mojego. Sumy! ...chciałbym, żeby kiedyś jeden mi
-          wędkę złamał:)
-        </p>
-      </div>
+    <div class="carousel-3d">
+      <carousel-3d
+        :controls-visible="true"
+        :controls-prev-html="'&#10092;'"
+        :controls-next-html="'&#10093;'"
+        :controls-width="30"
+        :controls-height="400"
+        :clickable="true"
+        :width="500"
+        :height="350"
+      >
+        <slide v-for="(data, index) in datas" :key="index" :index="index">
+          <div class="ins-sl">
+            <div class="ins-in">
+              <h2 v-if="data.title">
+                {{ data.title }}
+              </h2>
+              <h3 v-if="data.content">
+                {{ data.content }}
+              </h3>
+            </div>
+          </div>
+        </slide>
+      </carousel-3d>
     </div>
-    <div class="d-fishing">
-      <div class="bg-fishing"></div>
 
-      <h2>fishing with makarony7</h2>
-      <p>
-        Makarony. Tak kiedyś kolega Marcin nazywał mnie dla śmiechu, będąc
-        nastolatkiem. I właśnie ten nick od razu przyszedł mi do głowy, gdy
-        zastanawiałem się nad nazwą kanału. 7? Ot, tak bez przyczyny lubię tą
-        liczbę. Fishing with makarony7! To jestem ja i zapraszam na hobbystyczny
-        kanał wędkarski na youtubie!
-      </p>
+    <div class="about-content">
+      <div v-for="(data, index) in datas" :key="index" class="ab-ins b-vert-l">
+        <h2 v-if="data.title">
+          {{ data.title }}
+        </h2>
+        <p v-if="data.content">
+          {{ data.content }}
+        </p>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { Carousel3d, Slide } from 'vue-carousel-3d'
+import axios from 'axios'
+
 export default {
-  components: {},
+  components: {
+    Carousel3d,
+    Slide
+  },
+  async asyncData({ $axios }) {
+    const { data } = await $axios.get(`${process.env.baseUrl}/abouts`)
+    return { datas: data }
+  },
+  data() {
+    return {
+      baseUrl: null
+    }
+  },
   mounted() {
     setTimeout(() => this.$store.commit('setPageLoaded', true), 300)
+    this.baseUrl = process.env.baseUrl
+  },
+  methods: {
+    sendPost() {
+      const postData = {
+        names: 'asd'
+      }
+      axios.post('http://localhost:1337/abouts', postData).then(res => {})
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
+// CORNERS START
+.ins-sl::before,
+.ins-sl::after,
+.carousel-3d-slide::before,
+.carousel-3d-slide::after {
+  display: block;
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+.ins-sl {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  &::before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid @color-primary-slider;
+    border-left: 2px solid @color-primary-slider;
+  }
+  &::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid @color-primary-slider;
+    border-right: 2px solid @color-primary-slider;
+  }
+}
+.carousel-3d-slide {
+  &::before {
+    bottom: 0;
+    left: 0;
+    border-bottom: 2px solid @color-primary-slider;
+    border-left: 2px solid @color-primary-slider;
+  }
+  &::after {
+    top: 0;
+    right: 0;
+    border-top: 2px solid @color-primary-slider;
+    border-right: 2px solid @color-primary-slider;
+  }
+}
+// CORNERS END
+.carousel-3d-slide {
+  background-color: @black;
+  cursor: pointer;
+  .ins-sl {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h3,
+    p {
+      padding: 0 30px;
+    }
+  }
+  // &.current
+}
+/deep/ .carousel-3d-controls {
+  transform: translateY(-50%);
+  margin-top: 0;
+  .prev,
+  .next {
+    top: 50%;
+    transform: translateY(-50%);
+    color: @color-primary;
+    background: black;
+    span {
+      text-align: center;
+      .transition-duration(0.3s);
+      filter: brightness(1);
+      position: relative;
+    }
+    &:hover {
+      opacity: 1;
+      span {
+        filter: brightness(1.5);
+      }
+    }
+  }
+  .prev {
+    left: 0;
+    span {
+      left: 4px;
+    }
+  }
+  .next {
+    right: 0;
+    span {
+      right: 4px;
+    }
+  }
+}
+
+.carousel-3d {
+  @media @w-575 {
+    display: none !important;
+  }
+}
+.about-content {
+  display: none !important;
+  @media @w-575 {
+    display: block !important;
+    .ab-ins {
+      margin-bottom: 80px;
+      &:last-of-type {
+        margin-bottom: 0;
+
+        &.b-vert-l::after {
+          display: none;
+        }
+      }
+      &.b-vert-l {
+        &::after {
+          bottom: -40px;
+        }
+      }
+      h2 {
+        text-align: center;
+      }
+      p {
+      }
+    }
+  }
+}
 .am-image {
-  width: 30%;
-  float: left;
+  width: 500px;
+  max-width: 100%;
   position: relative;
-  margin-right: 30px;
-  margin-bottom: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  @media @w-991 {
+    width: 400px;
+  }
+  @media @w-767 {
+    width: 350px;
+  }
+  @media @w-575 {
+    width: 300px;
+  }
   img {
     max-width: 100%;
     height: auto;
@@ -112,7 +253,7 @@ export default {
     z-index: 2;
     font-size: 40px;
     opacity: 1;
-    color: red;
+    color: @color-primary;
     .transition-duration(0.5s);
   }
   &:hover {
@@ -150,24 +291,6 @@ export default {
     width: 100%;
     height: 500px;
     filter: grayscale(1) brightness(0.3);
-  }
-  h2,
-  p {
-    margin: 0 30px;
-    max-width: 500px;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-  }
-  h2 {
-    font-size: 50px;
-    color: red;
-  }
-  p {
-    display: none;
   }
 }
 </style>
