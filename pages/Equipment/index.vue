@@ -58,6 +58,38 @@ export default {
       }
       axios.post('http://localhost:1337/equipment', postData).then(res => {})
     }
+  },
+  head() {
+    return {
+      title: 'Sprzęt | fishing with makarony7',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Sprzęt | fishing with makarony7'
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Sprzęt | fishing with makarony7'
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website'
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: 'this.page.og_image'
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'Sprzęt | fishing with makarony7'
+        }
+      ]
+    }
   }
 }
 </script>

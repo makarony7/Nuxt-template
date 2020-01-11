@@ -55,6 +55,38 @@ export default {
         // console.log('dane zostały dodane')
       })
     }
+  },
+  head() {
+    return {
+      title: 'Filmy | fishing with makarony7',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Filmy | fishing with makarony7'
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'Filmy | fishing with makarony7'
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website'
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: 'this.page.og_image'
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'Filmy | fishing with makarony7'
+        }
+      ]
+    }
   }
 }
 </script>
@@ -103,7 +135,8 @@ export default {
       h2 {
         margin-bottom: 0;
         padding-bottom: 0;
-        .transition-duration(0.5s);
+        // color: @color-primary;
+        .transition-duration(0.3s);
         @media @w-991 {
           text-align: center;
           margin-bottom: 25px;
@@ -132,8 +165,8 @@ export default {
     }
     &-left {
       width: 50%;
-      opacity: 0.5;
-      filter: grayscale(1);
+      // opacity: 0.8;
+      // filter: grayscale(1);
       position: relative;
       overflow: hidden;
       .transition-duration(0.3s);
@@ -193,8 +226,8 @@ export default {
       }
 
       &:hover {
-        opacity: 1;
-        filter: grayscale(0);
+        // opacity: 1;
+        // filter: grayscale(0);
         ~ .video-box-right {
           h3 {
             opacity: 1;

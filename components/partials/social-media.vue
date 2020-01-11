@@ -6,6 +6,7 @@
       :key="index"
       :href="icon.url"
       target="_blank"
+      :title="icon.title"
     >
       <i :class="icon.class"></i>
     </a>
@@ -20,15 +21,18 @@ export default {
       icons: [
         {
           url: 'https://www.facebook.com/Wedkarzzwyboru/',
-          class: 'icon-facebook'
+          class: 'icon-facebook',
+          title: 'Facebook'
         },
         {
           url: 'https://www.youtube.com/channel/UCbbjevlzlJ67CcRuvUPBS_w',
-          class: 'icon-youtube'
+          class: 'icon-youtube',
+          title: 'Youtube'
         },
         {
           url: 'https://www.instagram.com/fishing_with_makarony7/',
-          class: 'icon-instagram'
+          class: 'icon-instagram',
+          title: 'Instagram'
         }
       ]
     }

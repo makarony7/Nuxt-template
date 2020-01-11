@@ -1,11 +1,11 @@
 <template>
   <div>
     <div>
-      <div class="left-wrapper p-fix p-fix-left">
+      <div class="left-wrapper p-fix p-fix-left overlay-c">
         <social-media />
       </div>
 
-      <div class="page-wrapper center-wrapper">
+      <div class="page-wrapper center-wrapper overlay-c">
         <div class="p-fixed">
           <div class="top-nav-def-rwd">
             <nuxt-link to="/">
@@ -33,13 +33,13 @@
       </div>
 
       <div class="right-wrapper p-fix p-fix-right">
-        <slide right width="450" no-overlay>
+        <slide right width="450">
           <navigation />
         </slide>
       </div>
     </div>
 
-    <footer-content />
+    <footer-content class="overlay-c" />
     <cookies />
   </div>
 </template>

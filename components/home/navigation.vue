@@ -1,9 +1,9 @@
 <template>
   <div class="navigation">
     <router-link
-      v-for="(link, index) in links"
+      v-for="link in links"
       :id="link.id"
-      :key="index"
+      :key="link.id"
       :to="link.url"
       class="border-all-hover"
     >
@@ -20,10 +20,10 @@ export default {
     return {
       links: [
         { id: 'link-home', title: 'Start', url: '/' },
-        { id: 'link-about', title: 'O mnie', url: '/o-mnie' },
-        { id: 'link-img', title: 'Zdjęcia', url: '/zdjecia' },
-        { id: 'link-videos', title: 'Filmy', url: '/filmy' },
-        { id: 'link-equipment', title: 'Sprzęt', url: '/sprzet' }
+        { id: 'link-about', title: 'O mnie', url: '/about' },
+        { id: 'link-img', title: 'Zdjęcia', url: '/images' },
+        { id: 'link-videos', title: 'Filmy', url: '/videos' },
+        { id: 'link-equipment', title: 'Sprzęt', url: '/equipment' }
       ]
     }
   },

@@ -67,6 +67,16 @@ export default {
   },
   async asyncData({ $axios }) {
     const { data } = await $axios.get(`${process.env.baseUrl}/abouts`)
+
+    // data.forEach(async d => {
+    //   const response = await $axios.post(
+    //     'https://fishing-with-makarony7.firebaseio.com/abouts.json',
+    //     d
+    //   )
+
+    //   console.log(response, 'data.forEach')
+    // })
+
     return { datas: data }
   },
   data() {
@@ -84,6 +94,38 @@ export default {
         names: 'asd'
       }
       axios.post('http://localhost:1337/abouts', postData).then(res => {})
+    }
+  },
+  head() {
+    return {
+      title: 'O mnie | fishing with makarony7',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'O mnie | fishing with makarony7'
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: 'O mnie | fishing with makarony7'
+        },
+        {
+          hid: 'og:type',
+          name: 'og:type',
+          content: 'website'
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: 'this.page.og_image'
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: 'O mnie | fishing with makarony7'
+        }
+      ]
     }
   }
 }

@@ -5,10 +5,10 @@
     </nuxt-link>
     <div class="footer-nav">
       <div class="left navigation">
-        <nuxt-link to="o-mnie" class="vert-line-hover">
+        <nuxt-link to="about" class="vert-line-hover">
           O mnie
         </nuxt-link>
-        <nuxt-link to="zdjecia" class="vert-line-hover">
+        <nuxt-link to="images" class="vert-line-hover">
           Zdjęcia
         </nuxt-link>
       </div>
@@ -16,10 +16,10 @@
         <social-media />
       </div>
       <div class="right navigation">
-        <nuxt-link to="filmy" class="vert-line-hover">
+        <nuxt-link to="videos" class="vert-line-hover">
           Filmy
         </nuxt-link>
-        <nuxt-link to="sprzet" class="vert-line-hover">
+        <nuxt-link to="equipment" class="vert-line-hover">
           Sprzęt
         </nuxt-link>
       </div>
