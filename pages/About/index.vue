@@ -66,18 +66,9 @@ export default {
     Slide
   },
   async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.baseUrl}/abouts`)
+    const { data } = await $axios.get(`${process.env.baseUrl}/abouts.json`)
 
-    // data.forEach(async d => {
-    //   const response = await $axios.post(
-    //     'https://fishing-with-makarony7.firebaseio.com/abouts.json',
-    //     d
-    //   )
-
-    //   console.log(response, 'data.forEach')
-    // })
-
-    return { datas: data }
+    return { datas: [...Object.values(data)] }
   },
   data() {
     return {
@@ -87,13 +78,19 @@ export default {
   mounted() {
     setTimeout(() => this.$store.commit('setPageLoaded', true), 300)
     this.baseUrl = process.env.baseUrl
+
+    // this.sendAbout()
   },
   methods: {
-    sendPost() {
-      const postData = {
-        names: 'asd'
+    sendAbout() {
+      const sendData = {
+        title: 'Test',
+        content: 'test',
+        id: 6
       }
-      axios.post('http://localhost:1337/abouts', postData).then(res => {})
+      axios.post(`${process.env.baseUrl}/abouts.json`, sendData).then(res => {
+        console.log(res, 'sendAbout')
+      })
     }
   },
   head() {
@@ -111,14 +108,14 @@ export default {
           content: 'O mnie | fishing with makarony7'
         },
         {
+          hid: 'og:image',
+          name: 'og:image',
+          content: '/img/og-image.jpg'
+        },
+        {
           hid: 'og:type',
           name: 'og:type',
           content: 'website'
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          content: 'this.page.og_image'
         },
         {
           hid: 'og:description',

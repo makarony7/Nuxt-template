@@ -68,7 +68,7 @@ module.exports = {
     host: 'localhost' // default: localhost
   },
   env: {
-    baseUrl: 'http://localhost:1337'
+    baseUrl: 'https://fishing-with-makarony7.firebaseio.com'
   },
   sitemap: {
     hostname: 'http://www.fishingwithmakarony7.pl/',

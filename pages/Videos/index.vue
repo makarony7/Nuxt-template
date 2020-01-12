@@ -33,8 +33,9 @@ import axios from 'axios'
 export default {
   components: {},
   async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.baseUrl}/videos`)
-    return { datas: data }
+    const { data } = await $axios.get(`${process.env.baseUrl}/videos.json`)
+
+    return { datas: [...Object.values(data)] }
   },
   data() {
     return {
@@ -78,7 +79,7 @@ export default {
         {
           hid: 'og:image',
           name: 'og:image',
-          content: 'this.page.og_image'
+          content: '/img/og-image.jpg'
         },
         {
           hid: 'og:description',

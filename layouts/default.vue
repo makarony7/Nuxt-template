@@ -5,25 +5,27 @@
         <social-media />
       </div>
 
-      <div class="page-wrapper center-wrapper overlay-c">
+      <div class="page-wrapper center-wrapper">
         <div class="p-fixed">
-          <div class="top-nav-def-rwd">
+          <div class="top-nav-def-rwd  overlay-c">
             <nuxt-link to="/">
               <logo />
             </nuxt-link>
+          </div>
+          <div class="hamburger-rwd">
             <slide right width="320">
               <navigation />
             </slide>
           </div>
         </div>
 
-        <div class="top-nav-def t-padding">
+        <div class="top-nav-def t-padding overlay-c">
           <div>
             <navigation />
           </div>
         </div>
 
-        <div class="container def-styles center-margin">
+        <div class="container def-styles center-margin  overlay-c">
           <transition name="page" mode="out-in">
             <router-view />
           </transition>
@@ -152,6 +154,11 @@ export default {
   padding-top: 0;
   @media @w-575 {
     // width: 100% !important;
+  }
+  .navigation {
+    a:first-child {
+      display: none;
+    }
   }
   &::after {
     content: '';
@@ -324,6 +331,20 @@ export default {
   left: 0;
   width: 100%;
   z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: @black;
+  .hamburger-rwd {
+    display: none;
+    @media @w-575 {
+      display: block;
+      width: 36px;
+      height: 25px;
+      position: relative;
+      margin-right: 20px;
+    }
+  }
 }
 
 .top-nav-def-rwd {

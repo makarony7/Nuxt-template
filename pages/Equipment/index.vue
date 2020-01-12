@@ -20,7 +20,7 @@
         <div class="right">
           <parallax-container class="parallax-container">
             <parallax-element :parallax-strength="10" class="parallax-element">
-              <img :src="`${baseUrl}${data.image.url}`" />
+              <img :src="`${data.image.url}`" />
             </parallax-element>
           </parallax-container>
         </div>
@@ -39,8 +39,9 @@ Vue.component('parallax-element', ParallaxElement)
 export default {
   components: {},
   async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.baseUrl}/equipment`)
-    return { datas: data }
+    const { data } = await $axios.get(`${process.env.baseUrl}/equipments.json`)
+
+    return { datas: [...Object.values(data)] }
   },
   data() {
     return {
@@ -74,14 +75,14 @@ export default {
           content: 'Sprzęt | fishing with makarony7'
         },
         {
+          hid: 'og:image',
+          name: 'og:image',
+          content: '/img/og-image.jpg'
+        },
+        {
           hid: 'og:type',
           name: 'og:type',
           content: 'website'
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          content: 'this.page.og_image'
         },
         {
           hid: 'og:description',

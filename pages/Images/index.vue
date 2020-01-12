@@ -1,6 +1,14 @@
 <template>
   <div>
-    <div v-for="(data, i) in datas" :key="data.id" class="img-box b-vert-l">
+    <div
+      v-for="(data, i) in datas"
+      :key="data.id"
+      class="img-box b-vert-l"
+      :class="{
+        'img-zoom': actives[i] === 'yep',
+        'not-zoom': actives[i] === 'not'
+      }"
+    >
       <div class="img-box_left">
         <h2 v-if="data.title">
           {{ data.title }}
@@ -10,15 +18,15 @@
         </h3>
       </div>
       <div v-if="mappedImages" class="img-box_right">
-        <!-- :class="{ 'img-zoom': actives[i][index] }" -->
         <div
           v-for="(image, index) in data.images"
           :key="image.id"
           class="image"
           :style="{
-            backgroundImage: `url('${baseUrl}${image.url}')`
+            backgroundImage: `url('${image.url}')`
           }"
-          @mouseover="handleActiveState(i, index)"
+          @mouseover="addActiveState(i)"
+          @mouseout="removeActiveState(i)"
           @click="() => showImg(i, index)"
         />
         <vue-easy-lightbox
@@ -44,15 +52,22 @@ Vue.use(Lightbox)
 export default {
   components: {},
   async asyncData({ $axios }) {
-    const { data } = await $axios.get(`${process.env.baseUrl}/contentimages`)
+    const { data } = await $axios.get(
+      `${process.env.baseUrl}/contentimages.json`
+    )
+
+    const datas = [...Object.values(data)]
+
     return {
-      datas: data,
+      datas,
+      actives: datas.map(() => false),
       indexes: Array(data.length).fill(null),
       visibles: Array(data.length).fill(false)
     }
   },
   data() {
     return {
+      datas: [],
       indexes: [],
       images: [],
       visibles: [],
@@ -62,13 +77,9 @@ export default {
   },
   computed: {
     mappedImages() {
-      // const tmpActives = []
       return this.datas.map(imgData => {
-        // tmpActives.push(imgData.images.map(() => false))
-        return imgData.images.map(img => `${process.env.baseUrl}${img.url}`)
+        return imgData.images.map(img => `${img.url}`)
       })
-
-      // this.actives = [...tmpActives]
     },
     baseUrl() {
       return process.env.baseUrl
@@ -78,7 +89,7 @@ export default {
     setTimeout(() => this.$store.commit('setPageLoaded', true), 300)
     // console.log(process.env.baseUrl)
 
-    // const imgBox = document.querySelectorAll('img-box_right')
+    // const imgBox = document.querySelectorAll('.img-box_right')
 
     // for (var i = 0; i < imgBox.length; i++) {
     //   imgBox.onmouseover = function() {
@@ -90,9 +101,17 @@ export default {
     // }
   },
   methods: {
-    handleActiveState(index) {
-      const tmpActives = [...this.actives.map(active => false)]
-      tmpActives[index] = true
+    addActiveState(index) {
+      const tmpActives = this.datas.map(() => 'not')
+
+      tmpActives[index] = 'yep'
+
+      this.actives = [...tmpActives]
+    },
+    removeActiveState(index) {
+      const tmpActives = [...this.actives.map(() => false)]
+
+      tmpActives[index] = false
 
       this.actives = [...tmpActives]
     },
@@ -105,12 +124,6 @@ export default {
       })
     },
     showImg(foundIndex, index) {
-      // const foundIndex = this.datas.findIndex(d => d.id === data.id)
-      // this.indexes[foundIndex] = index
-      // this.visibles[foundIndex] = true
-
-      console.log(foundIndex, index, 'showImg')
-
       const tmpIndexes = [...this.indexes]
       tmpIndexes[foundIndex] = index
 
@@ -154,7 +167,7 @@ export default {
         {
           hid: 'og:image',
           name: 'og:image',
-          content: 'this.page.og_image'
+          content: '/img/og-image.jpg'
         },
         {
           hid: 'og:description',
@@ -171,6 +184,22 @@ export default {
 .img-box {
   display: flex;
   margin-bottom: 100px;
+  .transition-duration(0.5s);
+  &.img-zoom {
+    .img-box_right {
+      .transition-duration(0.5s);
+      .image {
+        .transition-duration(0.5s);
+        filter: grayscale(1);
+        opacity: 0.5;
+
+        &:hover {
+          filter: none;
+          opacity: 1;
+        }
+      }
+    }
+  }
 
   @media @w-767 {
     flex-direction: column;
@@ -201,23 +230,27 @@ export default {
       }
     }
   }
+  &.not-zoom {
+    .img-box_right {
+      .transition-duration(0.5s);
+      filter: grayscale(1);
+      opacity: 0.5;
+    }
+  }
   &_right {
     width: 100%;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    &:hover {
-      .image {
-        filter: grayscale(1);
-        opacity: 0.5;
-      }
-    }
+    .transition-duration(0.5s);
     .image {
       background-position: center;
       background-size: cover;
       background-color: @black;
       width: 25%;
       height: 200px;
+      filter: none;
+      opacity: 1;
       @media @w-1399 {
         height: 180px;
       }
@@ -241,12 +274,8 @@ export default {
         width: 50%;
         height: 120px;
       }
-      .transition-duration(0.3s);
+      .transition-duration(0.5s);
       cursor: pointer;
-      &:hover {
-        filter: grayscale(0);
-        opacity: 1;
-      }
     }
   }
 }
