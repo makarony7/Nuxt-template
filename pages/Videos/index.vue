@@ -1,5 +1,5 @@
 <template>
-  <div class="video-container">
+  <main class="video-container">
     <div v-for="(data, index) in datas" :key="index" class="video-box b-vert-l">
       <div class="video-box-left">
         <div class="video-box-ins">
@@ -13,7 +13,7 @@
           </iframe>
         </div>
       </div>
-      <div class="video-box-right">
+      <article class="video-box-right">
         <div class="video-box-right-ins">
           <h2 v-if="data.title">
             {{ data.title }}
@@ -22,9 +22,9 @@
             {{ data.content }}
           </h3>
         </div>
-      </div>
+      </article>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

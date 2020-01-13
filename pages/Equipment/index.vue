@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div
+  <main>
+    <article
       v-for="(data, index) in datas"
       :key="index"
       class="mb-130 equip-box b-vert-l"
@@ -25,8 +25,8 @@
           </parallax-container>
         </div>
       </div>
-    </div>
-  </div>
+    </article>
+  </main>
 </template>
 
 <script>

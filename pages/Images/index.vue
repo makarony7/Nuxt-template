@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <main>
     <div
       v-for="(data, i) in datas"
       :key="data.id"
@@ -9,14 +9,14 @@
         'not-zoom': actives[i] === 'not'
       }"
     >
-      <div class="img-box_left">
+      <article class="img-box_left">
         <h2 v-if="data.title">
           {{ data.title }}
         </h2>
         <h3 v-if="data.content">
           {{ data.content }}
         </h3>
-      </div>
+      </article>
       <div v-if="mappedImages" class="img-box_right">
         <div
           v-for="(image, index) in data.images"
@@ -37,7 +37,7 @@
         />
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script src="path/to/vue.js"></script>

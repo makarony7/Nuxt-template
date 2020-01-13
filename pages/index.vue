@@ -2,17 +2,17 @@
   <div class="container">
     <div class="black-bg">
       <div class="img-grid">
-        <div id="h-m-1" class="home-img">
+        <div id="h-m-3" class="home-img">
           <img src="~/assets/img/a.jpg" alt="fishing-image-1" />
         </div>
         <div id="h-m-2" class="home-img">
-          <img src="~/assets/img/b.jpg" alt="fishing-image-2" />
+          <img src="~/assets/img/c.jpg" alt="fishing-image-2" />
         </div>
-        <div id="h-m-3" class="home-img">
-          <img src="~/assets/img/c.jpg" alt="fishing-image-3" />
+        <div id="h-m-1" class="home-img">
+          <img src="~/assets/img/d.jpg" alt="fishing-image-3" />
         </div>
         <div id="h-m-4" class="home-img">
-          <img src="~/assets/img/d.jpg" alt="fishing-image-4" />
+          <img src="~/assets/img/b.jpg" alt="fishing-image-4" />
         </div>
       </div>
       <navigation />
@@ -46,7 +46,7 @@ export default {
     setTimeout(() => this.$store.commit('setPageLoaded', true), 300)
 
     const linkAbout = document.getElementById('link-about')
-    const hM1 = document.getElementById('h-m-1')
+    const hM1 = document.getElementById('h-m-2')
     linkAbout.onmouseover = function() {
       hM1.classList.add('img-zoom')
     }
@@ -55,7 +55,7 @@ export default {
     }
 
     const linkImg = document.getElementById('link-img')
-    const hM2 = document.getElementById('h-m-2')
+    const hM2 = document.getElementById('h-m-4')
     linkImg.onmouseover = function() {
       hM2.classList.add('img-zoom')
     }
@@ -64,7 +64,7 @@ export default {
     }
 
     const linkVideos = document.getElementById('link-videos')
-    const hM3 = document.getElementById('h-m-3')
+    const hM3 = document.getElementById('h-m-1')
     linkVideos.onmouseover = function() {
       hM3.classList.add('img-zoom')
     }
@@ -73,7 +73,7 @@ export default {
     }
 
     const linkEquipment = document.getElementById('link-equipment')
-    const hM4 = document.getElementById('h-m-4')
+    const hM4 = document.getElementById('h-m-3')
     linkEquipment.onmouseover = function() {
       hM4.classList.add('img-zoom')
     }

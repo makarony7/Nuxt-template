@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <footer class="footer">
     <nuxt-link to="/" class="logo-out">
       <logo />
     </nuxt-link>
@@ -26,13 +26,13 @@
     </div>
     <div class="all-rights">
       <p>
-        Projekt i wykonanie: fishing with makarony7
+        Projekt i wykonanie: Jan Słuszkiewicz
       </p>
       <p>
         © 2020 Wszelkie prawa zastrzeżone
       </p>
     </div>
-  </div>
+  </footer>
 </template>
 
 <script>

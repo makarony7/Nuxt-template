@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation">
+  <nav class="navigation">
     <router-link
       v-for="link in links"
       :id="link.id"
@@ -9,7 +9,7 @@
     >
       <span>{{ link.title }}</span>
     </router-link>
-  </div>
+  </nav>
 </template>
 
 <script>

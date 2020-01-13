@@ -1,5 +1,5 @@
 <template>
-  <div class="about-me">
+  <main class="about-me">
     <div class="am-image">
       <img
         src="~/assets/img/logo-white.png"
@@ -30,14 +30,14 @@
       >
         <slide v-for="(data, index) in datas" :key="index" :index="index">
           <div class="ins-sl">
-            <div class="ins-in">
+            <article class="ins-in">
               <h2 v-if="data.title">
                 {{ data.title }}
               </h2>
               <h3 v-if="data.content">
                 {{ data.content }}
               </h3>
-            </div>
+            </article>
           </div>
         </slide>
       </carousel-3d>
@@ -53,7 +53,7 @@
         </p>
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>

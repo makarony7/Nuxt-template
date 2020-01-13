@@ -1,12 +1,12 @@
 <template>
   <div>
     <div>
-      <div class="left-wrapper p-fix p-fix-left overlay-c">
+      <aside class="left-wrapper p-fix p-fix-left overlay-c">
         <social-media />
-      </div>
+      </aside>
 
       <div class="page-wrapper center-wrapper">
-        <div class="p-fixed">
+        <header class="p-fixed">
           <div class="top-nav-def-rwd  overlay-c">
             <nuxt-link to="/">
               <logo />
@@ -17,7 +17,7 @@
               <navigation />
             </slide>
           </div>
-        </div>
+        </header>
 
         <div class="top-nav-def t-padding overlay-c">
           <div>
@@ -34,11 +34,11 @@
         <loader :loading="!pageLoaded" />
       </div>
 
-      <div class="right-wrapper p-fix p-fix-right">
+      <aside class="right-wrapper p-fix p-fix-right">
         <slide right width="450">
           <navigation />
         </slide>
-      </div>
+      </aside>
     </div>
 
     <footer-content class="overlay-c" />

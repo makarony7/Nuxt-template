@@ -4,6 +4,9 @@ module.exports = {
    ** Headers of the page
    */
   head: {
+    htmlAttrs: {
+      lang: 'pl'
+    },
     title: 'Fishing with makarony7',
     meta: [
       { charset: 'utf-8' },
@@ -12,7 +15,7 @@ module.exports = {
         hid: 'description',
         name: 'description',
         content:
-          'Fishing with makarony7. Prywatna strona wędkarska, hobbystyczna.'
+          'Fishing with makarony7. Moja, prywatna strona wędkarska. Umieszczone są na niej zdjęcia oraz filmy z kanały youtube fishing with makarony7.'
       },
       { name: 'og:image', content: '/img/og-image.jpg' }
     ],
