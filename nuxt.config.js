@@ -15,7 +15,7 @@ module.exports = {
         hid: 'description',
         name: 'description',
         content:
-          'Fishing with makarony7. Moja, prywatna strona wędkarska. Umieszczone są na niej zdjęcia oraz filmy z kanały youtube fishing with makarony7.'
+          'Fishing with makarony7. Moja, prywatna strona wędkarska. Umieszczone są na niej zdjęcia oraz filmy z kanału youtube fishing with makarony7.'
       },
       { name: 'og:image', content: '/img/og-image.jpg' }
     ],

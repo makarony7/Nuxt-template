@@ -20,7 +20,7 @@ export default {
     return {
       icons: [
         {
-          url: 'https://www.facebook.com/Wedkarzzwyboru/',
+          url: 'https://www.facebook.com/fishingwithmakarony7/',
           class: 'icon-facebook',
           title: 'Facebook'
         },
