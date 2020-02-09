@@ -233,6 +233,10 @@ export default {
       }
     }
   }
+  @media @w-575 {
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 .parallax-container,
 .parallax-element {

@@ -33,6 +33,17 @@ export default {
           url: 'https://www.instagram.com/fishing_with_makarony7/',
           class: 'icon-instagram',
           title: 'Instagram'
+        },
+        {
+          url:
+            'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=74ZR3RKCMSJ7Q&source=url',
+          class: 'icon-dollar',
+          title: 'Darowizna'
+        },
+        {
+          url: 'https://ko-fi.com/fishingwithmakarony7',
+          class: 'icon-coffee',
+          title: 'Buy me a coffee'
         }
       ]
     }
@@ -43,6 +54,10 @@ export default {
 <style lang="less" scoped>
 a {
   padding: 3px;
+  margin-bottom: 5px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
   i {
     &::before {
       color: @white;

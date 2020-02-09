@@ -174,6 +174,9 @@ export default {
         height: auto;
         width: 150px;
         margin: 0 auto;
+        a {
+          margin-bottom: 0;
+        }
       }
     }
   }
