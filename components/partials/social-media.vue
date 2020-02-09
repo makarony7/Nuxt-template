@@ -38,7 +38,7 @@ export default {
           url:
             'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=74ZR3RKCMSJ7Q&source=url',
           class: 'icon-dollar',
-          title: 'Darowizna'
+          title: 'Wesprzyj mnie'
         },
         {
           url: 'https://ko-fi.com/fishingwithmakarony7',
