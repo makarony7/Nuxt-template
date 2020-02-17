@@ -1,4 +1,4 @@
-# fishing-new-site
+# Nuxt template
 
 > My transcendent Nuxt.js project
 
