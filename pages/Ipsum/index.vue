@@ -1,19 +1,19 @@
 <template>
-  <div class="container">
-    STRONA GŁÓWNA
+  <div>
+    lorem ipsum
   </div>
 </template>
 
 <script>
 export default {
-  layout: 'default',
   components: {},
   data() {
     return {}
   },
   mounted() {
     setTimeout(() => this.$store.commit('setPageLoaded', true), 300)
-  }
+  },
+  methods: {}
 }
 </script>
 

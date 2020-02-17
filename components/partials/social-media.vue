@@ -44,6 +44,11 @@ export default {
           url: 'https://ko-fi.com/fishingwithmakarony7',
           class: 'icon-coffee',
           title: 'Buy me a coffee'
+        },
+        {
+          url: 'https://patronite.pl/fishingwithmakarony7',
+          class: 'icon-patronite',
+          title: 'Patronite'
         }
       ]
     }

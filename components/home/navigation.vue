@@ -13,17 +13,13 @@
 </template>
 
 <script>
-// import { Slide } from 'vue-burger-menu'
-
 export default {
   data() {
     return {
       links: [
         { id: 'link-home', title: 'Start', url: '/' },
-        { id: 'link-about', title: 'O mnie', url: '/about' },
-        { id: 'link-img', title: 'Zdjęcia', url: '/images' },
-        { id: 'link-videos', title: 'Filmy', url: '/videos' },
-        { id: 'link-equipment', title: 'Sprzęt', url: '/equipment' }
+        { id: 'link-about', title: 'Lorem', url: '/lorem' },
+        { id: 'link-img', title: 'Ipsum', url: '/ipsum' }
       ]
     }
   },
@@ -37,10 +33,8 @@ export default {
 .navigation {
   a {
     text-transform: uppercase;
-    color: @white;
+    color: red;
     font-size: 24px;
-    position: relative;
-    text-decoration: none;
   }
 }
 </style>
